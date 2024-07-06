@@ -18,7 +18,7 @@ dotenv.config();
 
 // DEFINE THE PORT
 const PORT = process.env.PORT || 3000;
-const GRAPHQLPORT = process.env.GRAPHQLPORT || 3001;
+// const GRAPHQLPORT = process.env.GRAPHQLPORT || 3001;
 
 // Create a HTTP SERVER
 const server = http.createServer(app);
@@ -745,7 +745,7 @@ io.on("connection", async (socket) => {
 const initApolloServer = async () => {
   const apolloServer = await connectApolloServer();
   startStandaloneServer(apolloServer, {
-    listen: { port: GRAPHQLPORT },
+    listen: { port: PORT },
   }).then((res) => {
     console.log(`🚀GraphQl Server ready at: ${res.url}`);
   });
